@@ -1,5 +1,5 @@
 def main():
-    tutorial_201()
+    tutorial_202()
 
 def tutorial_201():
     from pathlib import Path
@@ -17,6 +17,26 @@ def tutorial_201():
         print(f"CSV file found: {csv_file}")
     else:
         print("CSV file not found.")
+
+def tutorial_202():
+    from pathlib import Path
+    import pandas as pd
+
+    #Line below goes to the parent folder of the current file
+    solutions_root = Path(__file__).parent
+    #Line below goes to the parent folder of the solutions folder
+    solutions_root_root = Path(solutions_root).parent
+
+    #Goes into the folder, into data folder, and then to the csv file
+    csv_file = solutions_root_root.joinpath("data", "paralympics_raw.csv")
+    xlsx_file = solutions_root_root.joinpath("data", "paralympics_all_raw.xlsx")
+
+    csv_df = pd.read_csv(csv_file)
+    pd.read_excel(xlsx_file, sheet_name=0)
+    pd.read_excel(xlsx_file, sheet_name=1)
+
+def tutorial_203():
+    
 
 if __name__ == "__main__":
     main()
